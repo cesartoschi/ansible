@@ -1,5 +1,10 @@
 ---
 # tasks file for puppet
 - import_tasks: repository.yml
+  tags:
+    - agent
+    - server
 - import_tasks: puppet-agent.yml
+- import_tasks: puppet-server.yml
 - import_tasks: service.yml
+- import_tasks: service-server.yml
