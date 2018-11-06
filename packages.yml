@@ -1,0 +1,16 @@
+---
+- hosts: dexter
+  vars:
+    - install: vim
+    - remove: htop
+  tasks:
+    - name: Install packages
+      yum:
+        name: "{{ install }}" 
+        state: present
+
+    - name: Remove packages
+      yum:
+        name: "{{ remove }}"
+        state: absent
+...
