@@ -1,0 +1,14 @@
+---
+- apt: 
+    name: apache2
+    state: present
+  register: apache_installed
+  ignore_errors: yes
+  when: ansible_distribution == "Ubuntu"
+
+- yum:
+    name: httpd
+    state: present
+  register: apache_installed
+  ignore_errors: yes
+  when: ansible_distribution == "CentOS"
