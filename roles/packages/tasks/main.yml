@@ -1,0 +1,16 @@
+---
+
+- include_vars: "{{ ansible_os_family }}.yml"
+
+- name: Instala pacotes nos sistemas baseados em Debian
+  apt:
+    name: "{{ pacotes_debian }}"
+    state: present
+    update_cache: yes
+  when: ansible_os_family == "Debian"
+
+- name: Instala pacotes nos sistemas baseados em RedHat
+  yum: 
+    name: "{{ pacotes_redhat }}"
+    state: present
+  when: ansible_os_family == "RedHat"
